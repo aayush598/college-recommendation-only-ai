@@ -1,0 +1,10 @@
+langchain
+openai
+pandas
+openpyxl
+dataclasses
+langchain-community
+python-dotenv
+fastapi
+uvicorn
+bcrypt
