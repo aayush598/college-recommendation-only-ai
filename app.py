@@ -7,6 +7,8 @@ import os
 from dotenv import load_dotenv
 from college_chatbot import create_college_counselor_system
 
+from fastapi.staticfiles import StaticFiles
+
 # Load environment variables
 load_dotenv()
 
@@ -55,6 +57,10 @@ class ChatResponse(BaseModel):
     action: str
     error: Optional[str] = None
     metadata: Optional[Dict[str, Any]] = None
+
+
+app.mount("/ui", StaticFiles(directory="static"), name="ui")
+
 
 # --- Main Endpoint ---
 @app.post("/", response_model=ChatResponse)
